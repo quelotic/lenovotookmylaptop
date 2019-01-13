@@ -1,0 +1,10 @@
+screenshots@mozilla.org=80577a44-ef02-44ee-9fe4-c9722c10b526
+webcompat@mozilla.org=21fc2fad-1990-4ad5-981a-1c1ff12e0f6e
+fxmonitor@mozilla.org=c87b2968-f9ef-41ea-ab37-bb3caeb6a115
+uBlock0@raymondhill.net=8371ee94-f06d-4496-af52-8065c8f1098c
+formautofill@mozilla.org=47e3f337-4ec4-4ce7-b136-75324e7c7dc1
+webcompat-reporter@mozilla.org=69647391-863e-4fca-a067-c47852144907
+{4a313247-8330-4a81-948e-b79936516f78}=cdb9f52d-a83f-47b8-baa5-9c41c74c8585
+user-agent-switcher@ninetailed.ninja=72e5df01-b223-4de9-af08-264b09da6ac2
+easyscreenshot@mozillaonline.com=f0465244-c86b-40bd-b1d5-2077ac92b70f
+{026cca71-a2e2-4020-840d-f2759849d62e}=b14e1934-56e2-4dd7-b2ec-d6fc410884e1

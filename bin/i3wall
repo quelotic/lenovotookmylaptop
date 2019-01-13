@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+newWall=$(realpath $1)
+oldWall=$HOME/.config/i3/wallpaper.jpg
+
+if [ -e $oldWall ]; then
+    rm $oldWall
+    cp $newWall $oldWall
+else
+    cp $newWall $oldWall
+fi

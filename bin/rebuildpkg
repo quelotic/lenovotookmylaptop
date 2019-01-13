@@ -1,0 +1,79 @@
+#!/usr/bin/env/ bash
+
+#
+# Update abs tree and pacman db
+#
+abs
+pacman -Sy
+
+#
+# Get list of installed packages
+#
+pkglist=`pacman -Q | cut -d' ' -f1 | paste -s`
+
+#
+# Locate each package in abs tree
+#
+for pkg in $pkglist; do 
+    search=`find /var/abs/ -type d -name $pkg`
+
+    echo
+    echo "Searching for: $pkg"
+    echo "Result: $search"
+    
+    # Add it to makelist or norebuildlist
+    pkgbuild="$search/PKGBUILD"
+    if [ -f "$pkgbuild" ] ; then
+        # Check if its already installed from source
+        source=`srcpac -Qi $pkg | grep 'Source         :'`
+        if [ "$source" = "Source         : No" ] ; then
+            makelist="$makelist $pkg"
+        else
+            echo "Package was already built from source..."
+            norebuildlist="$norebuildlist $pkg"
+        fi
+    else
+        norebuildlist="$norebuildlist $pkg"
+    fi
+done
+
+#
+# Show list of packages not found in abs
+#
+echo
+echo "Packages that won't be rebuilt:"
+echo "-------------------------------"
+echo
+echo "$norebuildlist"
+
+#
+# Show list of packages to build
+#
+echo
+echo "Packages to build:"
+echo "------------------"
+echo
+echo "$makelist"
+
+#
+# Write to treebuildlist file
+#
+echo $makelist > treebuildlist
+echo
+echo "...wrote list to file: treebuildlist"
+
+#
+# Build the packages using aurbuild
+#
+echo
+echo "Starting build..."
+echo "-----------------"
+echo
+srcpac -Sb $makelist
+
+
+echo
+echo "-----------------------------------------------------------"
+echo "                    REBUILD COMPLETE!"
+echo "-----------------------------------------------------------"
+echo

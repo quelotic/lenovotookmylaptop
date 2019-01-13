@@ -1,0 +1,45 @@
+alias cp='cp -vi'
+alias mv='mv -i'
+
+alias update='sudo pacman -Syy'
+alias upgrade='sudo pacman -Su'
+alias aurupgrade='cower -vdu'
+alias uninstall='sudo pacman -Rsc'
+alias listorphans='sudo pacman -Qdt'
+alias cleancache='sudo pacman -Sc'
+
+alias ping='ping -c 3'
+alias whatismyip='echo "" && curl -s ifconfig.co | toilet -f future && echo ""'
+
+alias mountusb='sudo mount /dev/sdb1 /mnt/usb -o rw,uid=1000,gid=1000,dmask=022,fmask=033'
+alias mountpassport='sudo mount /dev/sdb1 /mnt/myPassport/ -o rw,uid=1000,gid=1000,dmask=022,fmask=033'
+alias mountcamera='sudo mount /dev/mmcblk0p1 /mnt/cameraSD -o rw,uid=1000,gid=1000,dmask=022,fmask=033'
+alias mountdia='sudo mount -t cifs //10.10.1.24/Documents /mnt/work -o username=thantoniou,workgroup=DIAXEIRISTIKI,iocharset=utf8,uid=quelotic,gid=quelotic && thunar /mnt/work'
+
+#alias wifi='sudo wifi-menu'
+alias irc='screen irssi'
+
+alias cmatrix='cmatrix -a -C cyan -u 2'
+
+alias leaguekill='WINEPREFIX=~/league wineserver -k'
+alias leaguerun='WINEPREFIX=~/league wine "C:/Riot Games/League of Legends/LeagueClient.exe" --no-sandbox 2>/dev/null'
+alias leaguecfg='WINEPREFIX=~/league winecfg 2>/dev/null'
+
+alias kernlogs='journalctl -f _TRANSPORT=kernel'
+
+alias weather='wttr'
+
+alias zshrc='$EDITOR ~/.oh-my-zsh/custom/customrc.zsh'
+alias zshalias='$EDITOR ~/.aliases'
+
+alias snip='maim -s -o | xclip -selection clipboard -target image/png'
+
+alias music='ncmpcpp'
+
+# MOUSE SPEED
+alias mouseSlower="xinput set-prop 9 'libinput Accel Speed' -0.75"
+alias mouseDefault="xinput set-prop 9 'libinput Accel Speed' 0"
+
+# DITTO
+alias startDitto='sudo logkeys -s -o ~/.ditto.log'
+alias stopDitto='sudo logkeys -k'
